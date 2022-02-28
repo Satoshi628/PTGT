@@ -1,0 +1,37 @@
+hydra:
+    run:
+        dir: ./outputs/back_bone/GFP_0/256_100
+
+
+parameter:
+    epoch: 200
+    gpu: 1
+    batch_size: 4
+    val_size: 2
+    feature_num: 256
+    overlap_range: 100.
+    noise_strength: 0.4
+    assignment: True
+
+C2C12:
+    condition: Control
+    Annotater: Human
+OIST:
+    root_dir: /mnt/kamiya/dataset/OIST/SimDensity_mov
+    Staning: GFP
+    split: 0
+    length: 16
+PTC:
+    root_dir: /mnt/kamiya/dataset/PTC
+    Molecule: RECEPTOR
+    Density: Mid
+    split: 0
+    length: 16
+
+scheduler:
+    first: 100
+    mult: 1.0
+    max: 0.001
+    min: 0.0
+    warmup: 0
+    gamma: 0.5

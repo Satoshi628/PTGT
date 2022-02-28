@@ -1,0 +1,35 @@
+
+hydra:
+    run:
+        dir: ./outputs/GFP_0/Normal_Sin
+parameter:
+    gpu: 0
+    multi_gpu: False
+    batch_size: 2
+    assignment: True
+    feature_num: 256
+    overlap_range: 100.
+    move_limit:
+        - 25.
+        - 30.
+        - 35.
+    pos: MLP # Sin, Learned, MLP
+    encoder: Time # Normal, Distance, Time, Both
+    noise_strength: 0.4
+    back_bone: /mnt/kamiya/code/TATR3D/outputs/back_bone/GFP_0/256_100/result/model.pth
+
+dataset: PTC
+C2C12:
+    condition: Control
+    Annotater: Human
+OIST:
+    root_dir: /mnt/kamiya/dataset/OIST/SimDensity_mov
+    Staning: GFP
+    split: 0
+    length: 16
+PTC:
+    root_dir: /mnt/kamiya/dataset/PTC
+    Molecule: RECEPTOR
+    Density: Low
+    split: 0
+    length: 16

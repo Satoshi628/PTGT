@@ -1,0 +1,46 @@
+hydra:
+    run:
+        dir: ./outputs/GFP_0/Normal_Sin
+#${now:%Y-%m-%d-%H-%M}
+
+parameter:
+    epoch: 200
+    gpu: 1
+    multi_gpu: False
+    batch_size: 2
+    val_size: 2
+    assignment: True
+    feature_num: 256
+    overlap_range: 100.
+    move_limit:
+        - 25.
+        - 30.
+        - 35.
+    pos: MLP # Sin, Learned, MLP
+    encoder: Time # Normal, Distance, Time, Both
+    noise_strength: 0.4
+    back_bone: /outputs/back_bone/GFP_0/256_100/result/model.pth
+
+dataset: OIST
+C2C12:
+    condition: Control
+    Annotater: Human
+OIST:
+    root_dir: /mnt/kamiya/dataset/OIST/SimDensity_mov
+    Staning: GFP
+    split: 0
+    length: 16
+PTC:
+    root_dir: /mnt/kamiya/dataset/PTC
+    Molecule: RECEPTOR
+    Density: Mid2
+    split: 0
+    length: 16
+
+scheduler:
+    first: 100
+    mult: 1.0
+    max: 0.001
+    min: 0.0
+    warmup: 0
+    gamma: 0.5
