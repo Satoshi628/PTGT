@@ -1,25 +1,43 @@
 # PTGT
-Thank you for viewing the code.
+> **Single-Particle Tracking by Graph Transformer**
+>
+> Satoshi Kamiya, Taka-aki Tsunoyama, Akihiro Kusumi, Kazuhiro Hotta
 
-## 
+![Architecture.png](assets/Architecture.png)
+
+## Abstract
+The immune system has been studied extensively by increasing the demand for object tracking of particles. However, because researches on single-particle tracking (SPT) by machine learning have not progressed yet, currently there is a reliance on software analysis despite low accuracy. There are three problems with SPT. First, there are no differences in the feature of each molecule, so tracking by feature differences is not possible. Second, it is difficult to predict the direction of molecular motion because it is random. Third, the high density of molecules causes frequent ID switches. 
+Therefore, we propose Particle Tracking via Graph Transformer (PTGT), which takes into account the relationships among molecules, to solve these problems.
+
+## Installation
 First, install packages for Python 3.7:
-cd code
+```
+git clone https://github.com/Satoshi628/PTGT.git
+cd PTGT
 pip install -r requirements.txt
-
+```
 Next, the data is formatted and a existence probability map is generated:
+```
 python track_to_hdf5.py
 python generator_EP.py
+```
 
-Learning 3D U-Net:
+Then, you need to train 3D U-Net:
+```
 python main_backbone.py
+```
+You can change to other settings by editing `config/main_backbone.yaml`.
 
-You can change to other settings by editing config/main_backbone.yaml.
-
-Learning Graph Transformer:
+Train Graph Transformer:
+```
 python main.py
+```
+Similarly, you can change to other settings in Graph Transformer by editing `config/main.yaml`.
 
-Similarly, you can change to other settings in Graph Transformer by editing config/main.yaml.
-
-
-Finally, the learned model is tested:
+Finally, Test the Trained model:
+```
 python test.py
+```
+
+## Citation
+*To Do*
