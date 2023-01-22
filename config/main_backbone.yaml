@@ -1,0 +1,22 @@
+hydra:
+    run:
+        dir: ./outputs/back_bone/GFP
+
+parameter:
+    epoch: 200
+    gpu: 0
+    batch_size: 4
+    val_size: 2
+    feature_num: 256 # Number of feature vectors in RFAM
+    overlap_range: 100. # Overlap range of RFAMs
+    noise_strength: 0.4 # Detection threshold
+    assignment: True # Use of RFAM
+
+
+scheduler:
+    first: 100
+    mult: 1.0
+    max: 0.001
+    min: 0.0
+    warmup: 0
+    gamma: 0.5

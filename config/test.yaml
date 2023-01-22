@@ -1,0 +1,14 @@
+
+hydra:
+    run:
+        dir: ./outputs/GFP/Time_MLP
+
+parameter:
+    gpu: 0
+    assignment: True # Use of RFAM
+    feature_num: 256 # Number of feature vectors in RFAM
+    overlap_range: 100. # Overlap range of RFAMs
+    pos: MLP # Types of Positional Encoding(Sin, Learned, MLP)
+    encoder: Time # Type of Attention(Normal, Distance, Time, Both)
+    noise_strength: 0.4 # Detection threshold
+    back_bone: outputs/back_bone/GFP
