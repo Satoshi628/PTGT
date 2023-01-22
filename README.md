@@ -16,7 +16,7 @@ git clone https://github.com/Satoshi628/PTGT.git
 cd PTGT
 pip install -r requirements.txt
 ```
-Next, the data is formatted and a existence probability map is generated:
+Next, Run the following code to generate a probability map of the numerator:
 ```
 python track_to_hdf5.py
 python generator_EP.py
