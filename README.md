@@ -10,19 +10,19 @@ The immune system has been studied extensively by increasing the demand for obje
 Therefore, we propose Particle Tracking via Graph Transformer (PTGT), which takes into account the relationships among molecules, to solve these problems.
 
 ## Installation
-First, install packages for Python 3.7:
+Install packages for Python 3.7:
 ```
 git clone https://github.com/Satoshi628/PTGT.git
 cd PTGT
 pip install -r requirements.txt
 ```
-Next, Run the following code to generate a probability map of the numerator:
+Run the following code to generate a probability map of the numerator:
 ```
 python track_to_hdf5.py
 python generator_EP.py
 ```
 
-Then, you need to train 3D U-Net:
+You need to train 3D U-Net:
 ```
 python main_backbone.py
 ```
@@ -34,7 +34,7 @@ python main.py
 ```
 Similarly, you can change to other settings in Graph Transformer by editing `config/main.yaml`.
 
-Finally, Test the Trained model:
+Test the Trained model:
 ```
 python test.py
 ```
